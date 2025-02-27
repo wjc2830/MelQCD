@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    h2 {
+        font-size: 2em;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition</h1>
+          <h2> CVPR 2025</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Juncheng Wang</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="">Chao Xu</a><sup>2*</sup>,</span>
+              <span class="author-block">
+                <a href="">Cheng Yu</a><sup>2*</sup>,
+              </span>
+            <span class="author-block">
+              <a href="">Lei Shang</a><sup>2&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Zhe Hu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Shujun Wang</a><sup>1&Dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Liefeng Bo</a><sup>2&Dagger;</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>
+              Hong Kong Polytechnic University,
+            </span>
+            <span class="author-block"><sup>2</sup>
+              Tongyi Lab, Alibaba Group, 
+            </span>
+          </div>
+
+          * equal contribution,
+          &dagger; project lead,
+          &Dagger; corresponding author
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=i39semywOqw"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            Video-to-audio generation is essential for synthesizing realistic audio tracks that synchronize effectively with silent videos.
+            Following the perspective of extracting essential signals from videos that can precisely control the mature text-to-audio generative diffusion models, this paper presents how to balance the representation of mel-spectrograms in terms of completeness and complexity through a new approach called Mel Quantization-Continuum Decomposition (Mel-QCD).
+            We decompose the mel-spectrogram into three distinct types of signals, employing quantization or continuity to them, we can effectively predict them from video by a devised video-to-all (V2X) predictor.
+            Then, the predicted signals are recomposed and fed into a ControlNet, along with a textual inversion design, to control the audio generation process.
+            Our proposed Mel-QCD method demonstrates state-of-the-art performance across eight metrics, evaluating dimensions such as quality, synchronization, and semantic consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison on AVSync-15</h2>
+        
+        <h3 class="title is-5">Ground Truth</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_gt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-5">Foley Crafter</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_foley.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <h3 class="title is-5">VTA-LDM</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-5">Ours Results</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <br><br>
+
+        <h2 class="title is-3">Comparison on VGGSound</h2>
+        
+        <h3 class="title is-5">Ground Truth</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-5">Foley Crafter</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <h3 class="title is-5">VTA-LDM</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-5">Ours Results</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <br><br>
+
+        <h2 class="title is-3">Audio Synthesis for Anime</h2>
+        
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/1_anime.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/2_anime.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/3_anime.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/4_anime.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <br><br>
+
+        <h2 class="title is-3">Audio Synthesis for Game</h2>
+        
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/1_game.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/2_game.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/3_game.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/4_game.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons 4.0 Licence</a>. Website template credit: <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
